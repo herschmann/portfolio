@@ -92,7 +92,6 @@ h3 { font-size: 24px; }
 .cs-block li { margin: 6px 0; }
 
 .posts { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; align-items: start; }
-.posts blockquote.instagram-media { min-width: 0 !important; width: 100% !important; margin: 0 !important; }
 .posts figcaption { font-size: 13px; color: var(--muted); margin-top: 8px; }
 
 .next { display: flex; justify-content: space-between; gap: 24px; padding: 48px 0 72px; font-family: var(--serif); font-size: 22px; }
@@ -163,10 +162,6 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
 
 /* Instagram embeds: framed to match the site */
 .posts figure { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 10px; }
-.posts blockquote.instagram-media { background: var(--paper) !important; border: 0 !important; border-radius: 10px !important; box-shadow: none !important; min-height: 420px; display: flex !important; align-items: center; justify-content: center; padding: 24px !important; }
-.posts blockquote.instagram-media a { font-size: 14px; font-weight: 600; color: var(--accent); text-decoration: none; }
-.posts blockquote.instagram-media a::after { content: " →"; }
-.posts iframe.instagram-media { border: 0 !important; border-radius: 10px !important; box-shadow: none !important; min-width: 0 !important; width: 100% !important; margin: 0 !important; }
 .posts figcaption { padding: 6px 4px 2px; }
 .show .posts { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
 
@@ -181,10 +176,6 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
 @media (max-width: 760px) { .product-card { padding: 24px; } .product-card dl { grid-template-columns: 1fr; } }
 
 /* X (Twitter) embeds, framed like the Instagram ones */
-.posts blockquote.twitter-tweet { background: var(--paper); border-radius: 10px; min-height: 420px; margin: 0; padding: 24px; display: flex; align-items: center; justify-content: center; }
-.posts blockquote.twitter-tweet a { font-size: 14px; font-weight: 600; color: var(--accent); text-decoration: none; }
-.posts blockquote.twitter-tweet a::after { content: " →"; }
-.posts .twitter-tweet-rendered { margin: 0 !important; width: 100% !important; max-width: none !important; }
 
 .show-text .show-tagline { font-family: var(--serif); font-size: clamp(20px, 2.2vw, 26px); line-height: 1.25; color: var(--accent); margin: -6px 0 18px; }
 
@@ -205,3 +196,23 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
 .ceramics { margin-top: 56px; max-width: 560px; }
 .ceramics p { color: var(--muted); font-size: 15px; margin-top: 6px; }
 @media (max-width: 760px) { .film-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; } }
+
+/* Post covers, hosted on the site so they show without Instagram's embed script */
+.posts figure { margin: 0; }
+.post-media { position: relative; display: block; border-radius: 10px; overflow: hidden; background: #111; }
+.post-media img { display: block; width: 100%; height: auto; transition: transform .4s ease; }
+.post-media:hover img { transform: scale(1.03); }
+.post-media .play { position: absolute; left: 12px; bottom: 12px; width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,.88); box-shadow: 0 4px 18px rgba(0,0,0,.25); }
+.post-media .play::after { content: ""; position: absolute; left: 15px; top: 12px; border-style: solid; border-width: 8px 0 8px 13px; border-color: transparent transparent transparent var(--ink); }
+.post-media:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.posts figcaption .post-link { display: block; margin-top: 2px; font-weight: 600; color: var(--accent); text-decoration: none; }
+.posts figcaption .post-link:hover { text-decoration: underline; }
+.show .posts.many { grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 16px; }
+.posts.many figure { padding: 8px; }
+@media (max-width: 760px) {
+  .show .posts, .show .posts.many { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .posts figure, .posts.many figure { padding: 6px; }
+  .posts figcaption { font-size: 12px; }
+  .post-media .play { width: 32px; height: 32px; left: 8px; bottom: 8px; }
+  .post-media .play::after { left: 12px; top: 9px; border-width: 7px 0 7px 11px; }
+}
