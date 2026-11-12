@@ -11,7 +11,10 @@ Cloudflare Pages publishes it to https://rachelherschmann.com.
 3. Merge the pull request. Cloudflare checks the site again and publishes it
    to rachelherschmann.com.
 
-If the check fails, nothing is published. `python3 scripts/check_site.py site`
+If the check fails, nothing is published.
+
+The `index.html` and `404.html` at the top of the repo only send the old
+herschmann.github.io/portfolio address to rachelherschmann.com. `python3 scripts/check_site.py site`
 runs the same check locally.
 
 ## Cloudflare Pages settings
