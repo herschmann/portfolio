@@ -1,4 +1,7 @@
-/assets/*
+/assets/posts/*
+  Cache-Control: public, max-age=604800
+
+/assets/film/*
   Cache-Control: public, max-age=604800
 
 /*
